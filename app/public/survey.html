@@ -21,13 +21,13 @@
             <form class="col s8">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input placeholder="Name" id="first_name" type="text" class="validate">
+                        <input placeholder="Name" id="name" type="text" class="validate">
                         <label for="first_name">Name(Required)</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="input_text" type="text" data-length="10">
+                        <input id="text" type="text" data-length="10" class="validate">
                         <label for="input_text">Link to photo image (Required)</label>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
             <h6>[Question #1]-
                 <strong> I make friends easily.</strong>
             </h6>
-            <select id=question1>
+            <select class="answer" id=question1>
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -53,7 +53,7 @@
             <h6>[Question#2]-
                 <strong>I prefer variety to routine.</strong>
             </h6>
-            <select id=question2>
+            <select class="answer" id=question2>
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -67,7 +67,7 @@
             <h6>[Question#3-
                 <strong>I dislike being the center of attention.</strong>
             </h6>
-            <select id=question3>
+            <select class="answer" id=question3>
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -81,7 +81,7 @@
             <h6>[Question#4]-
                 <strong>I try to follow the rules.</strong>
             </h6>
-            <select id=question4>
+            <select class="answer" id=question4>
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -95,7 +95,7 @@
             <h6>[Question#5]-
                 <strong>I don't know why I do some of the things I do.</strong>
             </h6>
-            <select id=question5>
+            <select class="answer" id=question5>
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -109,7 +109,7 @@
             <h6>[Question#6]-
                 <strong>I like to visit new places.</strong>
             </h6>
-            <select id=question6>
+            <select class="answer" id=question6>
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -123,7 +123,7 @@
             <h6>[Question#7]-
                 <strong>I believe that there is no absolute right and wrong.</strong>
             </h6>
-            <select id=question7>
+            <select class="answer" id=question7>
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -137,7 +137,7 @@
             <h6>[Question#8]-
                 <strong>I can't stand confrontations.</strong>
             </h6>
-            <select id=question8>
+            <select class="answer" id=question8>
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -151,7 +151,7 @@
             <h6>[Question#9]-
                 <strong>I see beauty in things that others might not notice.</strong>
             </h6>
-            <select id=question9>
+            <select class="answer" id=question9>
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -165,7 +165,7 @@
             <h6>[Question#10]-
                 <strong>I am often in a bad mood.</strong>
             </h6>
-            <select id=question10>
+            <select class="answer" id=question10>
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -182,10 +182,14 @@
                 <div id="results" class="modal">
                     <div class="modal-content">
                         <h4>Friend Match</h4>
-                        <!-- <p>A bunch of text</p> -->
+                        <div class="modal-body">
+                            <h3 id="matchName"></h3>
+                            <img id="matchImg" style="height: 400px; width: 400px;" src="https://vignette.wikia.nocookie.net/project-pokemon/images/4/47/Placeholder.png/revision/latest?cb=20170330235552"
+                                alt="">
+                        </div>
                     </div>
                     <div class="modal-footer">
-                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
                     </div>
                 </div>
 
@@ -214,13 +218,13 @@
     $("#submit").on("click", function () {
         function validateForm() {
             var isValid = true;
-            $(".form-control").each(function () {
+            $(".validate").each(function () {
                 if ($(this).val() === "") {
                     isValid = false;
                 }
             })
 
-            $(".chosen-select").each(function () {
+            $(".answer").each(function () {
                 if ($(this).val() === "") {
                     isValid = false;
                 }
