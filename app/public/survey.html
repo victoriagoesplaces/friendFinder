@@ -184,7 +184,7 @@
                         <h4>Friend Match</h4>
                         <div class="modal-body">
                             <h3 id="matchName"></h3>
-                            <img id="matchImg" style="height: 400px; width: 400px;" src="https://vignette.wikia.nocookie.net/project-pokemon/images/4/47/Placeholder.png/revision/latest?cb=20170330235552"
+                            <img id="matchPhoto" style="height: 400px; width: 400px;" src="https://vignette.wikia.nocookie.net/project-pokemon/images/4/47/Placeholder.png/revision/latest?cb=20170330235552"
                                 alt="">
                         </div>
                     </div>
@@ -199,8 +199,8 @@
 
         <br>
         <div>
-            <a href="/api/friends">API Friends List</a> |
-            <a href="https://github.com/victoriagoesplaces/friendFinder">GitHub Repo</a>
+            <a href="/api/friends" target="_blank">API Friends List</a> |
+            <a href="https://github.com/victoriagoesplaces/friendFinder" target="_blank">GitHub Repo</a>
         </div>
     </div>
 </body>
@@ -251,7 +251,7 @@
             var currentURL = window.location.origin;
             $.post(currentURL + "/api/friends", userInfo, function (data) {
                 $("#matchName").text(data.name)
-                $("#matchImg").attr("src", data.photo)
+                $("#matchPhoto").attr("src", data.photo)
                 $("#results").modal("toggle")
             })
         }
