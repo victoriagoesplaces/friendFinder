@@ -234,7 +234,7 @@
         if (validateForm()) {
             var userInfo = {
                 name: $("#name").val(),
-                picture: $("#picture").val(),
+                photo: $("#photo").val(),
                 scores: [
                     $("#question1").val(),
                     $("#quesion2").val(),
@@ -251,7 +251,7 @@
             var currentURL = window.location.origin;
             $.post(currentURL + "/api/friends", userInfo, function (data) {
                 $("#matchName").text(data.name)
-                $("#matchImg").attr("src", data.picture)
+                $("#matchImg").attr("src", data.photo)
                 $("#results").modal("toggle")
             })
         }
