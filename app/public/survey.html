@@ -13,21 +13,18 @@
         <h3>Survey Questions</h3>
         <hr>
         <h5 class="center">About You</h5>
-
-
-
         <div class="row">
             <div class="col s2"></div>
             <form class="col s8">
                 <div class="row">
                     <div class="input-field col s12">
                         <input placeholder="Name" id="name" type="text" class="validate">
-                        <label for="first_name">Name(Required)</label>
+                        <label for="name">Name(Required)</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="text" type="text" data-length="10" class="validate">
+                        <input id="photo" type="text" data-length="10" class="validate">
                         <label for="input_text">Link to photo image (Required)</label>
                     </div>
                 </div>
@@ -39,7 +36,7 @@
             <h6>[Question #1]-
                 <strong> I make friends easily.</strong>
             </h6>
-            <select class="answer" id=question1>
+            <select class="answer" id="question1">
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -53,7 +50,7 @@
             <h6>[Question#2]-
                 <strong>I prefer variety to routine.</strong>
             </h6>
-            <select class="answer" id=question2>
+            <select class="answer" id="question2">
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -67,7 +64,7 @@
             <h6>[Question#3-
                 <strong>I dislike being the center of attention.</strong>
             </h6>
-            <select class="answer" id=question3>
+            <select class="answer" id="question3">
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -81,7 +78,7 @@
             <h6>[Question#4]-
                 <strong>I try to follow the rules.</strong>
             </h6>
-            <select class="answer" id=question4>
+            <select class="answer" id="question4">
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -95,7 +92,7 @@
             <h6>[Question#5]-
                 <strong>I don't know why I do some of the things I do.</strong>
             </h6>
-            <select class="answer" id=question5>
+            <select class="answer" id="question5">
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -109,7 +106,7 @@
             <h6>[Question#6]-
                 <strong>I like to visit new places.</strong>
             </h6>
-            <select class="answer" id=question6>
+            <select class="answer" id="question6">
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -123,7 +120,7 @@
             <h6>[Question#7]-
                 <strong>I believe that there is no absolute right and wrong.</strong>
             </h6>
-            <select class="answer" id=question7>
+            <select class="answer" id="question7">
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -137,7 +134,7 @@
             <h6>[Question#8]-
                 <strong>I can't stand confrontations.</strong>
             </h6>
-            <select class="answer" id=question8>
+            <select class="answer" id="question8">
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -151,7 +148,7 @@
             <h6>[Question#9]-
                 <strong>I see beauty in things that others might not notice.</strong>
             </h6>
-            <select class="answer" id=question9>
+            <select class="answer" id="question9">
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -165,7 +162,7 @@
             <h6>[Question#10]-
                 <strong>I am often in a bad mood.</strong>
             </h6>
-            <select class="answer" id=question10>
+            <select class="answer" id="question10">
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -177,20 +174,17 @@
 
         <hr>
         <div class="col s12">
-            <button class="btn waves-effect waves-light right" type="submit" id="submit" name="action">Submit
+                <a class="waves-effect waves-light btn modal-trigger" id="submit" href="#results">submit</a>
                 <!-- Modal Structure -->
                 <div id="results" class="modal">
                     <div class="modal-content">
                         <h4>Friend Match</h4>
-                        <div class="modal-body">
+                        <!-- <div class="modal-body"> -->
                             <h3 id="matchName"></h3>
                             <img id="matchPhoto" style="height: 500px; width: 500px;" src="https://vignette.wikia.nocookie.net/project-pokemon/images/4/47/Placeholder.png/revision/latest?cb=20170330235552"
                                 alt="">
                         </div>
                     </div>
-                    <!-- <div class="modal-footer">
-                        <button href="#!" class="modal-close waves-effect waves-green btn-flat">Close</button>
-                    </div> -->
                 </div>
 
             </button>
@@ -211,7 +205,9 @@
 <script>
     $(document).ready(function () {
         $('select').formSelect();
+        $(".modal").modal();
     });
+
 </script>
 
 <script type="text/javascript">
@@ -237,25 +233,24 @@
                 photo: $("#photo").val(),
                 scores: [
                     $("#question1").val(),
-                    $("#quesion2").val(),
-                    $("#quesion3").val(),
-                    $("#quesion4").val(),
-                    $("#quesion5").val(),
-                    $("#quesion6").val(),
-                    $("#quesion7").val(),
-                    $("#quesion8").val(),
-                    $("#quesion9").val(),
-                    $("#quesion10").val()
+                    $("#question2").val(),
+                    $("#question3").val(),
+                    $("#question4").val(),
+                    $("#question5").val(),
+                    $("#question6").val(),
+                    $("#question7").val(),
+                    $("#question8").val(),
+                    $("#question9").val(),
+                    $("#question10").val()
                 ]
             }
             var currentURL = window.location.origin;
             $.post(currentURL + "/api/friends", userInfo, function (data) {
                 $("#matchName").text(data.name)
                 $("#matchPhoto").attr("src", data.photo)
-                $("#results").modal("toggle")
             })
         }
-        else {
+        else {çç
             alert("Please complete all fields before submitting")
         }
     })
